@@ -14,4 +14,4 @@ def emotion_detector(text_to_analyze):
     # print(formatted_response)
     return formatted_response
 
-# emotion_detector("I hate this new technology.")
+# emotion_detector("I am so happy I am doing this.")
