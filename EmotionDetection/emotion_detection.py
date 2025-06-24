@@ -7,8 +7,8 @@ def emotion_detector(text_to_analyze):
     myobj = { "raw_document": { "text": text_to_analyze } }
     response = requests.post(url, json = myobj, headers = headers)
     formatted_json = response.json()
-    print(response.status_code)
-    print(response.text)
+    # print(response.status_code)
+    # print(response.text)
     femboy = response.status_code == 400
     if femboy:
         return {
