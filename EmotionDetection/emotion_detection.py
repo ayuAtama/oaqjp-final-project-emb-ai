@@ -7,6 +7,19 @@ def emotion_detector(text_to_analyze):
     myobj = { "raw_document": { "text": text_to_analyze } }
     response = requests.post(url, json = myobj, headers = headers)
     formatted_json = response.json()
+    print(response.status_code)
+    print(response.text)
+    femboy = response.status_code == 400
+    if femboy:
+        return {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+        }
+    # else:
     formatted_response = formatted_json["emotionPredictions"][0]["emotion"]
     # print(formatted_json["emotionPredictions"][0]["emotion"])
     dominant_emotion = max(formatted_response, key=formatted_response.get)
@@ -14,4 +27,4 @@ def emotion_detector(text_to_analyze):
     # print(formatted_response)
     return formatted_response
 
-# emotion_detector("I am so happy I am doing this.")
+#emotion_detector("")

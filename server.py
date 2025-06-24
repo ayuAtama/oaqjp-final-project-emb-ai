@@ -14,6 +14,8 @@ def sent_detector():
     joy = response["joy"]
     saddness = response["sadness"]
     exhibitionism = response["dominant_emotion"]
+    if response['dominant_emotion'] is None:
+        return "Invalid text! Please try again!"
     formatted_response = f"For the given statement, the system response is 'anger': {anger}, 'disgust': {disgust}, 'fear': {fear}, 'joy': {joy} and 'sadness': {saddness}. The dominant emotion is {exhibitionism}." 
     return formatted_response
 
